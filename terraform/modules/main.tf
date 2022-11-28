@@ -18,7 +18,7 @@ data "aws_ami" "app_ami" {
 module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
 
-  name = "my-vpc"
+  name = "${var.environment.name}-vpc"
   cidr = "${var.environment.network_prefix}.0.0/16"
 
   azs             = ["us-east-1a", "us-east-1b"]
