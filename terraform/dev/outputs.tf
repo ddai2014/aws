@@ -1,3 +1,3 @@
-output "environment_url" {
-  value = module.dev.environment_url
+output "target_url" {
+  value = module.dev.target_url
 }
