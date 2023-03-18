@@ -1,4 +1,4 @@
-Below are the recordings of the challenge labs for AWS Academy Cloud Architecting course.
+Below are the list of the challenge lab walkthrough videos for the AWS Academy Cloud Architecting course.
 
 - Module 3 Challenge Lab - Creating a Static Website for the Café: https://youtu.be/TtMphH3XLLg
 - Module 4 Challenge Lab - Creating a Dynamic Website for the Café: https://youtu.be/afGXQLmXGew
