@@ -10,15 +10,16 @@
     </div>
 <?php
 require 'aws.phar';
-$az = file_get_contents('http://169.254.169.254/latest/meta-data/placement/availability-zone');
-$ipAddress = file_get_contents('http://169.254.169.254/latest/meta-data/public-ipv4');
-$instanceID = file_get_contents('http://169.254.169.254/latest/meta-data/instance-id');
+$url = 'http://169.254.169.254/latest/meta-data/';	
+$publicIp = file_get_contents($url . 'public-ipv4');
+$az = file_get_contents($url . 'placement/availability-zone');
+$instanceID = file_get_contents($url . 'instance-id');
 echo '<hr>';
 echo '<div>';
 echo '	<h2>Server Information: <br>';
-echo '	    IP Address: ' . $ipAddress . '<br>';
-echo '	   Region/Availability Zone: ' . $az . '<br>';
-echo '	   Instance ID: ' . $instanceID . '</h2>';
+echo '	    IP Address: <font color="red">' . $publicIp . '</font><br>';
+echo '	   Region/Availability Zone: <font color="red">' . $az . '</font><br>';
+echo '	   Instance ID: <font color="red">' . $instanceID . '</font></h2>';
 echo '</div>';
 ?>
 </body>
