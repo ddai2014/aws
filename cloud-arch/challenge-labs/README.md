@@ -9,5 +9,5 @@ Below are the list of the challenge lab walkthrough videos for the AWS Academy C
 - Module 10 Challenge Lab - Automating Infrastructure Deployment: https://youtu.be/B8idoSEZJjU
 - Module 13 Challenge Lab - Implementing a Serverless Architecture for the Café https://youtu.be/qDHPMn5-aqQ
 
-
+AWS SDK for PHP can be downloaded from https://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.phar
 
