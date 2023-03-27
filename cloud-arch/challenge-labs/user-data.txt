@@ -1,0 +1,11 @@
+#!/bin/bash
+yum install -y httpd php
+systemctl start httpd
+systemctl enable httpd
+wget https://docs.aws.amazon.com/aws-sdk-php/v3/download/aws.phar -P /var/www/html/
+wget https://raw.githubusercontent.com/ddai2014/aws/master/cloud-arch/challenge-labs/index.php -P /var/www/html/
+usermod -a -G apache ec2-user
+chown -R ec2-user:apache /var/www
+chmod 2775 /var/www
+find /var/www -type d -exec chmod 2775 {} \;
+find /var/www -type f -exec chmod 0664 {} \;
