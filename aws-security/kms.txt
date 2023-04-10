@@ -1,0 +1,7 @@
+# List the alias
+aws kms list-aliases
+# Encryption
+aws kms encrypt --key-id alias/demo-key --query CiphertextBlob --output text --plaintext fileb://data.txt > encrypted-data.base64
+certutil -decode .\encrypted-data.base64 .\encrypted-data.dat
+# Decryption
+aws kms decrypt --ciphertext-blob fileb://encrypted-data.dat --query Plaintext --output text
