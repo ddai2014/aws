@@ -5,3 +5,12 @@ aws kms encrypt --key-id alias/demo-key --query CiphertextBlob --output text --p
 certutil -decode .\encrypted-data.base64 .\encrypted-data.dat
 # Decryption
 aws kms decrypt --ciphertext-blob fileb://encrypted-data.dat --query Plaintext --output text
+# Generate CMKs with your own key material
+aws kms create-key --origin EXTERNAL
+# run the following command with the external-key-id from above. Copy PublicKey to pkey.b64 and ImportToken to token.b64
+aws kms get-parameters-for-import --key-id external-key-id  --wrapping-algorithm RSAES_OAEP_SHA_1 --wrapping-key-spec RSA_2048
+# Generate data key, copy the ciphertextblob to b64 file and run certutil to decode it
+aws kms generate-data-key --key-id alias/demo-key --key-spec AES_256
+# use openssl to encrypt/decrpyt image files using the plaintext data key
+openssl enc -e -aes-256-cbc -k yGX6cEFRUH8wwYrVP7184RVTZ7Ajiudk+r+UOeqRWV4= -p -in .\cloud.jpg -out encrypted-cloud.dat
+openssl enc -d -aes-256-cbc -k yGX6cEFRUH8wwYrVP7184RVTZ7Ajiudk+r+UOeqRWV4= -p -in .\encrypted-cloud.jpg -out cloud2.jpg
