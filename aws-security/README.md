@@ -1,2 +1,2 @@
 Here is the diagram for the network security demo
-!(network-security-demo.png)
+![Nework Secuirty Diagram](network-security-demo.png)
