@@ -15,4 +15,7 @@ aws kms get-parameters-for-import --key-id external-key-id  --wrapping-algorithm
 aws kms generate-data-key --key-id alias/demo-key --key-spec AES_256
 # use openssl to encrypt/decrpyt image files using the plaintext data key
 openssl enc -e -aes-256-cbc -k yGX6cEFRUH8wwYrVP7184RVTZ7Ajiudk+r+UOeqRWV4= -p -in .\cloud.jpg -out encrypted-cloud.dat
+#Retreive the data-key from the encrypted data-key
+certutil -decode .\encrypted-data-key.txt encrypted-data-key.dat
+aws kms decrypt --ciphertext-blob fileb://encrypted-data-key.dat --query Plaintext --output text
 openssl enc -d -aes-256-cbc -k yGX6cEFRUH8wwYrVP7184RVTZ7Ajiudk+r+UOeqRWV4= -p -in .\encrypted-cloud.jpg -out cloud2.jpg
