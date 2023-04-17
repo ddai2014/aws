@@ -1,3 +1,5 @@
+#Enable S3 MFA deletion -- only performed by root
+aws s3api put-bucket-versioning --bucket ddai-demo-123344dds --versioning-configuration Status=Enabled,MFADelete=Enabled --mfa "arn:aws:iam::831139277107:mfa/demo-device 718955"
 # List the alias
 aws kms list-aliases
 # Encryption
