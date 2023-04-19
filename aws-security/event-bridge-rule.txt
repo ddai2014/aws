@@ -1,0 +1,13 @@
+#EC2 Security Group Change notification
+
+{
+  "source": ["aws.ec2"],
+  "detail-type": ["AWS API Call via CloudTrail"],
+  "detail": {
+    "eventSource": ["ec2.amazonaws.com"],
+    "eventName": ["AuthorizeSecurityGroupIngress"]
+  }
+}
+
+#S3 bucket public access change notificaiton
+PutBucketPublicAccessBlock
