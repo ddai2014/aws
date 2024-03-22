@@ -1,0 +1,3 @@
+aws ec2 describe-instances
+aws ec2 run-instances --image-id ami-0c101f26f147fa7fd --instance-type t2.micro --key-name demo-key
+aws ec2 terminate-instances --instance-ids i-073c671c48e542f28, i-0ba497fd672bf9902
