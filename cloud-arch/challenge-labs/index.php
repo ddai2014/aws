@@ -10,13 +10,12 @@
     </div>
 <?php
 require 'aws.phar';
-$flag-host = 'https://github.com/ddai2014/aws/tree/master/cloud-arch/challenge-labs/';
-$flag = $flag-host . 'ca.png';
+$flag = 'https://raw.githubusercontent.com/ddai2014/aws/master/cloud-arch/challenge-labs/ca.png';
 $url = 'http://169.254.169.254/latest/meta-data/';
 $publicIp = file_get_contents($url . 'public-ipv4');
 $az = file_get_contents($url . 'placement/availability-zone');
 if (str_starts_with($az, 'us')) {
-  $flag = $flag-host . 'us.png';
+  $flag = 'https://raw.githubusercontent.com/ddai2014/aws/master/cloud-arch/challenge-labs/us.png';
 }
 $instanceID = file_get_contents($url . 'instance-id');
 echo '<div><img src="' .$flag. '" width="200"></div>';
