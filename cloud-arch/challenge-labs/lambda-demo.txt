@@ -1,0 +1,11 @@
+Follow this tutorial for image resize demo: https://docs.aws.amazon.com/lambda/latest/dg/with-s3-tutorial.html
+
+The script to recreate the layer zip file is as of following:
+mkdir package
+pip install \
+--platform manylinux2014_x86_64 \
+--target=package \
+--implementation cp \
+--python-version 3.9 \
+--only-binary=:all: --upgrade \
+pillow boto3
