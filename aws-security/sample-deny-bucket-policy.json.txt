@@ -1,0 +1,14 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "DemoStatement",
+            "Effect": "Deny",
+            "Principal": {
+                "AWS": "arn:aws:iam::851725618094:user/John"
+            },
+            "Action": "s3:DeleteObject",
+            "Resource": "arn:aws:s3:::demo-ddai-545y6556/demo plan.docx"
+        }
+    ]
+}
