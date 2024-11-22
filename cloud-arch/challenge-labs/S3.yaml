@@ -1,10 +1,14 @@
 AWSTemplateFormatVersion: "2010-09-09"
-Description: cafe S3 template
+Description: sample S3 template
 Resources:
   S3Bucket:
     Type: AWS::S3::Bucket
     Properties:
-      AccessControl: PublicRead
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+      OwnershipControls:
+        Rules:
+          - ObjectOwnership: ObjectWriter
       WebsiteConfiguration:
         IndexDocument: index.html
     DeletionPolicy: Retain
