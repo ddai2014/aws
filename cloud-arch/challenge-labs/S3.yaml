@@ -11,7 +11,6 @@ Resources:
           - ObjectOwnership: ObjectWriter
       WebsiteConfiguration:
         IndexDocument: index.html
-    DeletionPolicy: Retain
 Outputs:
   WebsiteURL:
     Value: !GetAtt
