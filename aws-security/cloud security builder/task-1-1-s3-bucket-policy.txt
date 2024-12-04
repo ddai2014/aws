@@ -1,0 +1,43 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowSpecifiedPrincipals",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::data-bucket-<unique-id>",
+                "arn:aws:s3:::data-bucket-<unique-id>/*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account-id>:role/voclabs",
+                        "arn:aws:iam::<account-id>:user/paulo",
+                        "arn:aws:iam::<account-id>:user/sofia"
+                    ]
+                }
+            }
+        },
+        {
+            "Sid": "DenyOtherPrincipals",
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:*",
+            "Resource": [
+                "arn:aws:s3:::data-bucket-<unique-id>",
+                "arn:aws:s3:::data-bucket-<unique-id>/*"
+            ],
+            "Condition": {
+                "StringNotEquals": {
+                    "aws:PrincipalArn": [
+                        "arn:aws:iam::<account-id>:role/voclabs",
+                        "arn:aws:iam::<account-id>:user/paulo",
+                        "arn:aws:iam::<account-id>:user/sofia"
+                    ]
+                }
+            }
+        }
+    ]
+}
