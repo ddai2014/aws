@@ -12,6 +12,7 @@ Parameters:
     Default: update-cafe-network
     
   InstanceTypeParameter:
+    Description: Enter t2.micro, t2.small, t3.micro or t3.small. Default is t2.small.
     Type: String
     Default: t2.small
     AllowedValues:
@@ -19,7 +20,6 @@ Parameters:
       - t2.small
       - t3.micro
       - t3.small
-    Description: Enter t2.micro, t2.small, t3.micro, or t3.small. Default is t2.small.
 
 Mappings:
 
@@ -49,7 +49,7 @@ Resources:
           FromPort: '22'
           ToPort: '22'
           CidrIp: 0.0.0.0/0
-          
+  
   CafeInstance:
     Type: "AWS::EC2::Instance"
     Properties:
@@ -75,9 +75,9 @@ Resources:
             systemctl start httpd
             systemctl enable mariadb
             systemctl start mariadb
-            wget https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACACAD-2-16750/14-lab-mod10-challenge-CFn/s3/cafe-app.sh
+            wget https://aws-tc-largeobjects.s3.us-west-2.amazonaws.com/CUR-TF-200-ACACAD-3-113230/15-lab-mod11-challenge-CFn/s3/cafe-app.sh
             chmod +x cafe-app.sh
-            ./cafe-app.sh
+            ./cafe-app.sh       
 
 Outputs:
   WebServerPublicIP:
