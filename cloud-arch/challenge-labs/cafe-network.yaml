@@ -1,5 +1,5 @@
 AWSTemplateFormatVersion: 2010-09-09
-Description: Network layer for the cafe
+Description: Network Template
 
 Resources:
   VPC:
